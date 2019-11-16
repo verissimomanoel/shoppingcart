@@ -1,0 +1,39 @@
+<div class="container-fluid animated fadeIn">
+    <app-page-title [title]="true" [description]="'TITLE_DETAIL_USER' | i18n"></app-page-title>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <div fxLayout="column" fxLayoutGap="1%">
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="10px">
+                    <div fxFlex="100%">
+                        <div class="form-group">
+                            <label class="text-dark ">{{'LABEL_NAME' | i18n}}:</label>
+                            <span class="form-control bg-light" title="{{'LABEL_NAME' | i18n}}">{{user.name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="1%">
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="10px">
+                    <div fxFlex="100%">
+                        <div class="form-group">
+                            <label class="text-dark ">{{'LABEL_EMAIL' | i18n}}:</label>
+                            <span class="form-control bg-light" title="{{'LABEL_EMAIL' | i18n}}">{{user.email}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+        fxLayoutGap="10px" class="mb-3">
+        <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+            <button type="button" routerLink="/user/list" class="btn btn-danger" title="{{'LABEL_VOLTAR' | i18n}}">
+                <i class="fe-arrow-left-circle mr-1"></i>
+                <span>{{'LABEL_BACK' | i18n}}</span>
+            </button>
+        </div>
+    </div>
+</div>

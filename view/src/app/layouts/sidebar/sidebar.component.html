@@ -1,0 +1,45 @@
+<!-- ========== Left Sidebar Start ========== -->
+<ng-template #contentTemplate>
+    <!--- Sidemenu -->
+    <div id="sidebar-menu" class="mt-3">
+        <ul class="metismenu" id="side-menu" #sideMenu>
+            <li>
+                <a routerLink="/cart" title="{{'LABEL_SHOPPING' | i18n}}" href="javascript: void(0);">
+                    <i class="fe-shopping-cart"></i>
+                    <span class="animated fadeInLeftBig slow">{{'LABEL_SHOPPING_CART' | i18n}}</span>
+                </a>
+            </li>
+            <li>
+                <a class="has-arrow" aria-expanded="false" title="{{'LABEL_ADMIN' | i18n}}"
+                    href="javascript: void(0);">
+                    <i class="fe-list"></i>
+                    <span class="animated fadeInLeftBig slow">{{'LABEL_ADMIN' | i18n}}</span>
+                </a>
+                <ul class="mm-collapse">
+                    <li>
+                        <a routerLink="/user" title="{{'LABEL_USER' | i18n}}" href="javascript: void(0);">
+                            <i class="fe-user mr-2"></i>
+                            <span>{{'LABEL_USER' | i18n}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/item" title="{{'LABEL_ITEM' | i18n}}" href="javascript: void(0);">
+                            <i class="fe-tablet mr-2"></i>
+                            <span>{{'LABEL_ITEM' | i18n}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- End Sidebar -->
+
+    <div class="clearfix"></div>
+</ng-template>
+
+<div class="left-side-menu transition animated fadeInLeftBig faster">
+    <div class="slimscroll-menu" slimScroll>
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+</div>
+<!-- Left Sidebar End -->

@@ -1,0 +1,60 @@
+<!-- Topbar Start -->
+<div class="navbar-custom">
+  <ul class="list-unstyled topnav-menu float-right mb-0">
+
+    <li class="dropdown notification-list" dropdown>
+      <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light text-dark" dropdownToggle id="profileDropdown"
+        href="javascript: void(0);" role="button" aria-haspopup="false" aria-expanded="false">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <span class="pro-user-name ml-2">
+          <span>{{username}}</span>
+          <i class="mdi mdi-chevron-down ml-2"></i>
+        </span>
+      </a>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
+        aria-labelledby="button-basic">
+
+        <li role="menuitem">
+          <div class="dropdown-header noti-title">
+            <h6 class="text-overflow m-0">{{'LABEL_WELCOME' | i18n}}</h6>
+          </div>
+        </li>
+
+        <!-- item-->
+        <li role="menuitem">
+          <a href="javascript:void(0);" title="{{'LABEL_LEAVE' | i18n}}" class="dropdown-item notify-item text-dark" (click)="logout()">
+            <i class="fe-log-out mr-2"></i>
+            <span>{{'LABEL_LEAVE' | i18n}}</span>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+
+  <!-- LOGO -->
+  <div class="logo-box animated transition fadeInLeftBig">
+    <a [routerLink]="['/']" class="logo text-center">
+      <span class="logo-lg">
+        <img src="assets/images/logo-light.png" alt="" height="110">
+      </span>
+      <span class="logo-sm">
+        <img src="assets/images/logo-sm.png" alt="" height="50">
+      </span>
+    </a>
+  </div>
+
+  <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+    <li>
+      <button class="ml-1 button-menu-mobile waves-effect" (click)="toggleMobileMenu($event)">
+        <i class="fe-menu"></i>
+      </button>
+    </li>
+
+    <li>
+      <h4 class="page-title-main">{{pageHeading}}</h4>
+    </li>
+
+  </ul>
+</div>
+<!-- end Topbar -->

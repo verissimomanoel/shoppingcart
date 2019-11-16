@@ -1,0 +1,110 @@
+<div class="container-fluid animated fadeIn">
+    <form #formUser="ngForm">
+        <app-page-title [title]="true" [description]="'TITLE_SEARCH_ITEM' | i18n"></app-page-title>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="10px">
+                    <div fxFlex>
+                        <div class="form-group">
+                            <label class="text-dark required" for="name">{{'LABEL_NAME' | i18n}}:</label>
+                            <input id="name" type="text" name="name" title="{{'LABEL_NAME' | i18n}}"
+                                class="form-control" maxlength="100" [(ngModel)]="filterTO.name" #name="ngModel"
+                                required>
+
+                            <div class="invalid-feedback d-block"
+                                *ngIf="(submitted || name.dirty || name.touched) && name.invalid">
+                                <div *ngIf="name.errors.required">
+                                    <i class="fe-x mr-1"></i>
+                                    <span>{{'required' | i18n}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+                    fxLayoutGap="10px">
+                    <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+
+                        <button type="button" class="btn btn-primary text-white" title="{{'LABEL_SEARCH' | i18n}}"
+                            (click)="onSubmit(filterTO, formUser)">
+                            <i class="fe-search mr-1"></i>
+                            <span>{{'LABEL_SEARCH' | i18n}}</span>
+                        </button>
+                    </div>
+
+                    <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+                        <button type="button" class="btn btn-danger text-white" title="{{'LABEL_CLEAN' | i18n}}"
+                            (click)="onCleanFilter()">
+                            <i class="mdi mdi-eraser mr-1"></i>
+                            <span>{{'LABEL_CLEAN' | i18n}}</span>
+                        </button>
+                    </div>
+
+                    <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+                        <button type="button" class="btn btn-primary-mid text-white" title="{{'LABEL_NEW' | i18n}}"
+                            routerLink="/item/create">
+                            <i class="fe-plus mr-1"></i>
+                            <span>{{'LABEL_NEW' | i18n}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow animated fadeIn" *ngIf="searched">
+            <div class="card-body">
+
+                <p-table [value]="items" class="table" [responsive]="true" [paginator]="true" [rows]="10">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th [pSortableColumn]="'name'">
+                                <span>{{'LABEL_NAME' | i18n}}</span>
+                                <p-sortIcon [field]="'name'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'value'">
+                                <span>{{'LABEL_VALUE' | i18n}}</span>
+                                <p-sortIcon [field]="'value'"></p-sortIcon>
+                            </th>
+                            <th>{{'LABEL_ACTIONS' | i18n}}</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="5" class="text-center">{{'MSG003' | i18n}}</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+                            <td ngClass.xs="text-left" ngClass.sm="text-left" ngClass="text-center">
+                                <label class="ui-column-title">{{'LABEL_NAME' | i18n}}:</label>
+                                <div>{{item.name}}</div>
+                            </td>
+                            <td ngClass.xs="text-left" ngClass.sm="text-left" ngClass="text-center">
+                                <label class="ui-column-title">{{'LABEL_VALUE' | i18n}}:</label>
+                                <div>{{item.value | currency}}</div>
+                            </td>
+                            <td ngClass="text-center">
+                                <a class="text-primary" title="{{'LABEL_DETAIL' | i18n}}"
+                                    [routerLink]="['/item', 'detail']" [state]="{item:item}">
+                                    <i class="fe-search"></i>
+                                </a>
+
+                                <a class="text-primary-mid" title="{{'LABEL_UPDATE' | i18n}}"
+                                    [routerLink]="['/item', 'update']" [state]="{item:item}">
+                                    <i class="fe-edit"></i>
+                                </a>
+
+                                <a class="text-danger" title="{{'LABEL_DELETE' | i18n}}" (click)="onDelete(item)">
+                                    <i class="fe-trash-2"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </form>
+
+</div>

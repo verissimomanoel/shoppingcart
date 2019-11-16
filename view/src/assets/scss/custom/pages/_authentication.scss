@@ -1,0 +1,30 @@
+// 
+// authentication.scss
+//
+
+.authentication-bg.enlarged {
+    min-height: 100px;
+}
+
+// authentication pages background
+body.authentication-bg {
+    background-color: #242E3D;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+// Logout page
+.logout-icon {
+    width: 140px;
+}
+
+.title-login {
+    font-size: large;
+    color: white;
+}

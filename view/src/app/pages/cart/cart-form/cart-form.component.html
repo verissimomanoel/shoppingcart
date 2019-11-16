@@ -1,0 +1,118 @@
+<div class="container-fluid animated fadeIn">
+    <app-page-title [title]="true" [description]="'TITLE_SHOPPING_CART' | i18n">
+    </app-page-title>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+                fxLayoutGap="10px" class="mb-3">
+                <div fxFlex="60px" fxFlex.sm="60px" fxFlex.xs="40px">
+                    <i class="fe-shopping-cart noti-icon" style="font-size:40px"></i>
+                    <span class="badge badge-danger rounded-circle noti-icon-badge">{{totalItems}}</span>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="10px">
+                <div fxFlex="100%">
+                    <div class="card-box">
+                        <div class="float-right">
+                            <button type="button" class="btn btn-link p-0" title="{{'LABEL_ADD_ITEM' | i18n}}"
+                                (click)="onOpenItem(itemTemplate)">
+                                <i class="fe-plus mr-1"></i>
+                                <span>{{'LABEL_ADD_ITEM' | i18n}}</span>
+                            </button>
+                        </div>
+
+                        <h4 class="header-title mt-0 mb-3" *ngIf="cart !== undefined && cart.items.length > 0">{{'LABEL_MY_ITEMS' | i18n}}</h4>
+
+                        <div class="table-responsive" *ngIf="cart !== undefined && cart.items.length > 0">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{'LABEL_NAME' | i18n}}</th>
+                                        <th class="text-center">{{'LABEL_VALUE' | i18n}}</th>
+                                        <th class="text-center">{{'LABEL_QUANTITY' | i18n}}</th>
+                                        <th class="text-center">{{'LABEL_AMOUNT' | i18n}}</th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let itemCart of cart.items; let i = index">
+                                        <td>{{i + 1}}</td>
+                                        <td>{{itemCart.item.name}}</td>
+                                        <td class="text-center">{{itemCart.item.value | currency}}</td>
+                                        <td class="text-center">{{itemCart.quantity}}</td>
+                                        <td class="text-center">{{itemCart.item.value * itemCart.quantity | currency}}</td>
+                                        <td class="text-center">
+                                            <i class="fe-minus-circle icon-red" title="{{'LABEL_ADD' | i18n}}"
+                                                (click)="onDelItem(itemCart.item)"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+        fxLayoutGap="10px" class="mb-3" *ngIf="cart !== undefined && cart.items.length > 0">
+        <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+            <button type="button" routerLink="/cart/checkout/{{cart.id}}" class="btn btn-success" title="{{'LABEL_CHECKOUT' | i18n}}">
+                <i class="fe-arrow-right-circle mr-1"></i>
+                <span>{{'LABEL_CHECKOUT' | i18n}}</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<ng-template #itemTemplate>
+    <div class="modal-body">
+        <app-page-title [subtitle]="true" icon="fe-database" [description]="'LABEL_ADD_ITEM' | i18n">
+        </app-page-title>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+            fxLayoutGap="10px" class="mb-3">
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{'LABEL_NAME' | i18n}}</th>
+                            <th class="text-center">{{'LABEL_VALUE' | i18n}}</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{item.name}}</td>
+                            <td class="text-center">{{item.value | currency}}</td>
+                            <td class="text-center">
+                                <i class="fe-plus-circle icon-green" title="{{'LABEL_ADD' | i18n}}"
+                                    (click)="onAddItem(item)"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+            fxLayoutGap="10px" class="mt-2">
+
+            <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+                <button type="button" class="btn btn-danger text-white" title="{{'LABEL_CANCEL' | i18n}}"
+                    (click)="itemModal.hide()">
+                    <i class="fe-slash mr-1"></i>
+                    <span>{{'LABEL_CANCEL' | i18n}}</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

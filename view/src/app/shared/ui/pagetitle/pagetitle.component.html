@@ -1,0 +1,19 @@
+<div class="row mb-2">
+  <div class="col-12">
+    <div class="page-title-box">
+      <div class="page-title text-uppercase">
+        <div class="h4" *ngIf="title">
+          <i [class]="icon"></i>
+          <span [ngClass]="{'ml-1': icon}">{{description}}</span>
+        </div>
+        <div class="h5" *ngIf="subtitle">
+          <i [class]="icon"></i>
+          <span [ngClass]="{'ml-1': icon}">{{description}}</span>
+        </div>
+        <div *ngIf="!title && !subtitle">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

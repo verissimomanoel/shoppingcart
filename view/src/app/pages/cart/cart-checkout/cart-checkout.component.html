@@ -1,0 +1,58 @@
+<div class="container-fluid animated fadeIn">
+    <app-page-title [title]="true" [description]="'TITLE_SHOPPING_CART' | i18n">
+    </app-page-title>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+                fxLayoutGap="10px" class="mb-3">
+                <div fxFlex="60px" fxFlex.sm="60px" fxFlex.xs="40px">
+                    <i class="fe-shopping-cart noti-icon" style="font-size:40px"></i>
+                    <span class="badge badge-danger rounded-circle noti-icon-badge">{{totalItems}}</span>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="10px">
+                <div fxFlex="100%">
+                    <div class="card-box" *ngIf="cart !== undefined && cart.items.length > 0">
+                        <h4 class="header-title mt-0 mb-3">
+                            <i class="mdi mdi-notification-clear-all mr-1"></i> {{'LABEL_CHECKOUT' | i18n}}
+                        </h4>
+
+                        <ul class="list-group mb-0 user-list">
+                            <li class="list-group-item" *ngFor="let itemCart of cart.items; let i = index">
+                                <div class="user-list-item">
+                                    <div class="user float-left mr-3">
+                                        <i class="mdi mdi-circle text-primary"></i>
+                                    </div>
+                                    <div class="user-desc overflow-hidden">
+                                        <h5 class="name mt-0 mb-1">{{itemCart.item.name}}</h5>
+                                        <span class="desc text-muted font-12 text-truncate d-block">
+                                            {{itemCart.quantity}} - {{itemCart.item.value | currency}}
+                                        </span>
+                                        <span class="desc text-muted font-12 text-truncate d-block">
+                                            {{'LABEL_TOTAL' | i18n}}: {{itemCart.item.value * itemCart.quantity | currency}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h4 class="header-title mt-0 mb-3">
+                            <i class="fe-briefcase" style="font-size: 50px;"></i> {{cart.amount| currency}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+        fxLayoutGap="10px" class="mb-3">
+        <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+            <button type="button" routerLink="/cart/create" class="btn btn-danger" title="{{'LABEL_VOLTAR' | i18n}}">
+                <i class="fe-arrow-left-circle mr-1"></i>
+                <span>{{'LABEL_BACK' | i18n}}</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,199 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+view/package-lock.json
+
+# compiled output
+view/dist
+view/tmp
+view/out-tsc
+
+# dependencies
+view/node_modules
+
+# IDEs and editors
+view/.idea
+view/.project
+view/.classpath
+view/.c9/
+view/*.launch
+view/.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+view/.vscode/*
+view/!.vscode/settings.json
+view/!.vscode/tasks.json
+view/!.vscode/launch.json
+view/!.vscode/extensions.json
+
+# misc
+view/.sass-cache
+view/connect.lock
+view/coverage
+view/libpeerconnection.log
+view/npm-debug.log
+view/yarn-error.log
+view/testem.log
+view/typings
+
+# System Files
+view/.DS_Store
+view/Thumbs.db
+
+
+# Created by https://www.gitignore.io/api/eclipse,intellij
+# Edit at https://www.gitignore.io/?templates=eclipse,intellij
+
+### Eclipse ###
+
+api/.metadata
+api/bin/
+api/tmp/
+api/*.tmp
+api/*.bak
+api/*.swp
+api/*~.nib
+api/local.properties
+api/.settings/
+api/.loadpath
+api/.recommenders
+
+# External tool builders
+api/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+api/*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+api/*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+api/.cproject
+
+# CDT- autotools
+api/.autotools
+
+# Java annotation processor (APT)
+api/.factorypath
+
+# PDT-specific (PHP Development Tools)
+api/.buildpath
+
+# sbteclipse plugin
+api/.target
+
+api/target
+
+# Tern plugin
+api/.tern-project
+
+# TeXlipse plugin
+api/.texlipse
+
+# STS (Spring Tool Suite)
+api/.springBeans
+
+# Code Recommenders
+api/.recommenders/
+
+# Annotation Processing
+api/.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+api/.cache-main
+api/.scala_dependencies
+api/.worksheet
+
+### Eclipse Patch ###
+# Eclipse Core
+api/.project
+
+# JDT-specific (Eclipse Java Development Tools)
+api/.classpath
+
+# Annotation Processing
+api/.apt_generated
+
+api/.sts4-cache/
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+api/.idea/**/workspace.xml
+api/.idea/**/tasks.xml
+api/.idea/**/usage.statistics.xml
+api/.idea/**/dictionaries
+api/.idea/**/shelf
+
+# Generated files
+api/.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+api/.idea/**/dataSources/
+api/.idea/**/dataSources.ids
+api/.idea/**/dataSources.local.xml
+api/.idea/**/sqlDataSources.xml
+api/.idea/**/dynamic.xml
+api/.idea/**/uiDesigner.xml
+api/.idea/**/dbnavigator.xml
+
+# Gradle
+api/.idea/**/gradle.xml
+api/.idea/**/libraries
+
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.  Uncomment if using
+# auto-import.
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+
+# CMake
+api/cmake-build-*/
+
+# Mongo Explorer plugin
+api/.idea/**/mongoSettings.xml
+
+# File-based project format
+api/*.iws
+
+# IntelliJ
+api/.idea/
+api/out/
+
+# mpeltonen/sbt-idea plugin
+api/.idea_modules/
+
+# JIRA plugin
+api/atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+api/.idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+api/com_crashlytics_export_strings.xml
+api/crashlytics.properties
+api/crashlytics-build.properties
+api/fabric.properties
+
+# Editor-based Rest Client
+api/.idea/httpRequests
+
+# Android studio 3.1+ serialized cache file
+api/.idea/caches/build_file_checksums.ser
+
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
+# .idea/misc.xml
+# *.ipr
+
+# Sonarlint plugin
+api/.idea/sonarlint
+
+# End of https://www.gitignore.io/api/eclipse,intellij

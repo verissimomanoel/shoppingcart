@@ -1,0 +1,24 @@
+version: "2.0"
+services:
+  mongo:
+    image: mongo
+    container_name: shopping-cart-mongodb
+    ports:
+      - 27017:27017
+    command: mongod --logpath=/dev/null # --quiet
+    networks:
+      - spring-mongo-net
+  springboot:
+    build: .
+    container_name: shopping-cart-api
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - spring-mongo-net
+networks:
+  spring-mongo-net:
+    driver: bridge

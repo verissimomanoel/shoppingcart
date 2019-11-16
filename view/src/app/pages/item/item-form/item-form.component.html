@@ -1,0 +1,66 @@
+<div class="container-fluid animated fadeIn">
+    <form #formItem="ngForm">
+        <app-page-title [title]="true" [description]="'TITLE_NEW_ITEM' | i18n" *ngIf="action.isCreate()">
+        </app-page-title>
+        <app-page-title [title]="true" [description]="'TITLE_UPDATE_ITEM' | i18n" *ngIf="action.isUpdate()">
+        </app-page-title>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="10px">
+                    <div fxFlex="70%">
+                        <div class="form-group">
+                            <label class="text-dark required" for="name">{{'LABEL_NAME' | i18n}}:</label>
+                            <input id="name" type="text" name="name" title="{{'LABEL_NAME' | i18n}}"
+                                class="form-control" maxlength="100" [(ngModel)]="item.name" #name="ngModel"
+                                required>
+
+                            <div class="invalid-feedback d-block"
+                                *ngIf="(submitted || name.dirty || name.touched) && name.invalid">
+                                <div *ngIf="name.errors.required">
+                                    <i class="fe-x mr-1"></i>
+                                    <span>{{'required' | i18n}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div fxFlex="30%">
+                        <div class="form-group">
+                            <label class="text-dark required" for="value">{{'LABEL_VALUE' | i18n}}:</label>
+                            <input id="valueItem" type="number" name="value" title="{{'LABEL_VALUE' | i18n}}" class="form-control"
+                                [(ngModel)]="item.value" #value="ngModel" required>
+
+                            <div class="invalid-feedback d-block"
+                                *ngIf="(submitted || value.dirty || value.touched) && value.invalid">
+                                <div *ngIf="value.errors.required">
+                                    <i class="fe-x mr-1"></i>
+                                    <span>{{'required' | i18n}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutAlign.xs="space-around"
+            fxLayoutGap="10px" class="mb-3">
+            <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+                <button type="button" class="btn btn-primary-mid" title="{{'LABEL_SALVAR' | i18n}}"
+                    (click)="onSubmit(item, formItem)">
+                    <i class="mdi mdi-content-save mr-1"></i>
+                    <span>{{'LABEL_SAVE' | i18n}}</span>
+                </button>
+            </div>
+
+            <div fxFlex="130px" fxFlex.sm="130px" fxFlex.xs="40px">
+                <button type="button" routerLink="/item/list" class="btn btn-danger"
+                    title="{{'LABEL_CANCELAR' | i18n}}">
+                    <i class="mdi mdi-cancel mr-1"></i>
+                    <span>{{'LABEL_CANCEL' | i18n}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
