@@ -151,3 +151,11 @@ $ docker run -v ${PWD}:/app -v /app/node_modules -p 4200:4200 --rm shopping-cart
 
 * **api/Dockerfile** and **web/Dockerfile**  - Docker build file for executing shopping-cart Docker images. 
 Instructions to build artifacts, copy build artifacts to docker image and then run app on proper port with proper configuration file.
+
+## Extra 
+
+In folder **postman** has files **SHOPPINGCART-DSV.postman_environment.json** and **SHOPPINGCART.postman_collection.json** to import on Postman app and they can use to test API.
+
+In file **SHOPPINGCART-DSV.postman_environment.json** has all environment variables to call API.
+
+Before calling any request, the request LOGIN needs to call. This request authenticate and generate a JWT token and set on **ACCESS_TOKEN** to send in other requests.
