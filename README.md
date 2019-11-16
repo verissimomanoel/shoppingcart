@@ -1,6 +1,3 @@
-# shoppingcart
-The purpose of this project is to show how to develop a simple example of a shopping cart.
-
 # Shopping Cart Web - Spring Boot - Angular
 
 ## About
@@ -41,8 +38,8 @@ The command below list the MongoDB image created:
 
 ```bash
 $ docker ps -a |grep mongo
-b5edf3af5290        mongo                                        "docker-entrypoint.s…"   53 minutes ago      Exited (0) 11 minutes ago                                                         shopping-cart-mongodb
-80663d05925a        mongo                                        "docker-entrypoint.s…"   4 days ago          Exited (0) About an hour ago                                                      focused_blackburn
+b5edf3af5290        mongo     "docker-entrypoint.s…"   53 minutes ago      Exited (0) 11 minutes ago                                                       shopping-cart-mongodb
+80663d05925a        mongo     "docker-entrypoint.s…"   4 days ago          Exited (0) About an hour ago                                                      focused_blackburn
 ```
 
 If you have more than one, choose the id of one and start the image:
